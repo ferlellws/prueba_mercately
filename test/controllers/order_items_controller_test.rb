@@ -43,6 +43,6 @@ class OrderItemsControllerTest < ActionDispatch::IntegrationTest
       delete order_item_url(@order_item)
     end
 
-    assert_redirected_to order_items_url
+    assert_redirected_to cart_url(@order_item.order)
   end
 end

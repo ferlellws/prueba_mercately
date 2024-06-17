@@ -83,9 +83,6 @@ class OrdersController < ApplicationController
       else
         @current_order_item.update(quantity: @current_quantity)
       end
-    else
-      @current_quantity = quantity
-      @order.order_items.create(product: @product, quantity: quantity.to_i)
     end
   end
 
@@ -99,9 +96,6 @@ class OrdersController < ApplicationController
       @current_order_item.update(quantity: @current_quantity)
     elsif quantity.to_i <= 0
       @current_order_item.destroy
-    else
-      @current_quantity = quantity
-      @order.order_items.create(product: @product, quantity: quantity.to_i)
     end
   end
 

@@ -8,18 +8,13 @@ export default class extends Controller {
     orderId: Number
   }
 
-  connect() {
-    this.loadCartFromLocalStorage()
-    // this.updateAllCounters()
-  }
+  connect() { }
 
   async add(event) {
     event.preventDefault()
 
     const productId = this.productIdValue
     const action = this.actionValue
-    // const productPrice = this.productPriceValue
-    // const productImage = this.productImageValue
     const orderId = this.orderIdValue
 
     let quantity = 1
@@ -130,14 +125,6 @@ export default class extends Controller {
         counterElement.textContent = item.quantity
         counterElement.classList.toggle("hidden", item.quantity === 0)
       }
-    })
-  }
-
-  loadCartFromLocalStorage() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || []
-    cart.forEach(item => {
-      // Aquí puedes crear elementos HTML para cada producto en el carrito si es necesario
-      console.log(`Producto: ${item.name}, Cantidad: ${item.quantity}`)
     })
   }
 }
