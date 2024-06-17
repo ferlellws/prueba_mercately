@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "total_price_#{@product.id}" do %>
+  <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white" id="total_price_<%= @product.id %>">
+    <%= number_to_currency(@current_order_item.quantity * @product.price) %>
+  </td>
+<% end %>

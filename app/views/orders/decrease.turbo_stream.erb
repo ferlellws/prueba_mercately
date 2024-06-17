@@ -1,0 +1,13 @@
+<%= turbo_stream.replace "input_product_#{@product.id}" do %>
+  <input type="number" id="input_product_<%= @product.id %>" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" value="<%= @current_quantity %>" required data-action="change->cart#add" />
+<% end %>
+
+<%= turbo_stream.replace "total_price_products" do %>
+  <span class="text-sm tracking-tight" id="total_price_products"><%= format_currency(@order.total) %></span>
+<% end %>
+
+<%= turbo_stream.replace "total_price_#{@product.id}" do %>
+  <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white" id="total_price_<%= @product.id %>">
+    <%= number_to_currency(@current_order_item.quantity * @product.price) %>
+  </td>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <h1 class="font-bold text-4xl text-center mb-8 w-full">Carrito de compras</h1>
+
+    <div class="flex justify-between items-start gap-8">
+      <%= render @order %>
+
+      <% if @order.order_items.any? %>
+        <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
+            Cantidad de productos (<span id="products-count"><%= @order.order_items.count %>)</span>
+          </h5>
+          <div class="flex justify-between items-baseline mb-1 text-gray-900 dark:text-white">
+            <span class="text-xl font-semibold">Total:</span>
+            <span class="text-sm tracking-tight" id="total_price_products"><%= format_currency(@order.total) %></span>
+          </div>
+
+          <%= button_to "Pedir la orden", checkout_order_path(@order), method: :put, class: "mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "Ir a comprar", root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%#= button_to "Eliminar la orden", @order, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+  </div>
+</div>

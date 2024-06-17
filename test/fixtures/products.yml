@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Producto 1
+  price: 9.99
+
+two:
+  name: Producto 2
+  price: 9.99
+
+three:
+  name: Producto 3
+  price: 9.99
+
+four:
+  name: Producto 4
+  price: 9.99
